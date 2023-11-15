@@ -25,6 +25,7 @@ public class FipsTestExecutionListener implements TestExecutionListener {
 	private Set<String> logs;
 
 	private static final List<String> allowedProviders = List.of(
+			"SunPKCS11-NSS-FIPS",
 			"SunPKCS11",
 			"SUN",
 			"SunEC",
