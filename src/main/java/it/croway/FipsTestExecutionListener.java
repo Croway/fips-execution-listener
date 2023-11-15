@@ -41,7 +41,8 @@ public class FipsTestExecutionListener implements TestExecutionListener {
 
 		logs = new ConcurrentSkipListSet<>();
 		try {
-			outputFile = Files.createTempFile("","-fips-test-execution-listener");
+			outputFile = Files.createTempFile(System.getProperty("fte.file.name", ""),
+					"-fte");
 		} catch (IOException e) {
 			LOG.error("temporary file cannot be created", e);
 			throw new RuntimeException(e);
