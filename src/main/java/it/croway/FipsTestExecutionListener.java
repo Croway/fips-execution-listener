@@ -38,7 +38,6 @@ public class FipsTestExecutionListener implements TestExecutionListener {
 	@Override
 	public void testPlanExecutionStarted(TestPlan testPlan) {
 		LOG.info("test plan {} starting", testPlan);
-
 		logs = new ConcurrentSkipListSet<>();
 		try {
 			outputFile = Files.createTempFile(System.getProperty("fte.file.name", ""),
@@ -47,6 +46,7 @@ public class FipsTestExecutionListener implements TestExecutionListener {
 			LOG.error("temporary file cannot be created", e);
 			throw new RuntimeException(e);
 		}
+		LOG.info("test plan file: {}", outputFile.toString());
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class FipsTestExecutionListener implements TestExecutionListener {
 			throw new RuntimeException(e);
 		}
 
-		LOG.info("File " + outputFile.toString() + " flushed");
+        LOG.info("File {} flushed", outputFile.toString());
 	}
 
 	@Override
